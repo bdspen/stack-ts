@@ -1,0 +1,14 @@
+{
+  "name": "stack",
+  "version": "1.0.0",
+  "description": "A stack data",
+  "main": "stack.js",
+  "scripts": {
+    "test": "mocha test/stack.test.js"
+  },
+  "author": "Benjmain Spenard",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
+}
