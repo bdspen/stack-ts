@@ -59,19 +59,25 @@ describe('Stack', () => {
             assert.equal(stack.size, 0);
         });
 
-        it('should return the popped element', () => {
+        it('should pop many elements from the stack', () => {
             stack.push(data);
-            const popped = stack.pop();
-            assert.equal(popped, data);
+            stack.push({prop: "val"});
+            stack.push(2398234);            
+            assert.equal(stack.size, 3);
+            stack.pop();
+            assert.equal(stack.size, 2);
+            stack.pop();
+            assert.equal(stack.size, 1);
+            stack.pop();
+            assert.equal(stack.size, 0);
         });
 
         it('should return the popped element', () => {
             stack.push(data);
             const popped = stack.pop();
-            assert.equal(popped, data);
+            assert.equal(popped.data, data);
         });
-
-
+        
     });
 
     describe('Stack functions', () => {

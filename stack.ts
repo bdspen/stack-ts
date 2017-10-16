@@ -23,6 +23,10 @@ export class Stack {
         return this.top !== null;
     }
 
+    isEmpty(): boolean {
+        return this.size === 0;
+    }
+
     push(data: any) {
         const node = new Node(data);
         if(!this.hasTop())
@@ -36,16 +40,18 @@ export class Stack {
         return node;
     }
 
-    // pop(): Node {
-    //     if (!this.hasTop()) throw new Error('Stack is empty');
-    //     else {
-    //         const temp = this.top.prev;
-    //         const top = this.top;
-    //         this.top = new Node(null);            
-    //         this.top = temp;
-    //         return top;
-    //     }
-    // }
+    pop(): Node {
+        if (!this.hasTop()) throw new Error('Stack is empty');
+        else {
+            const temp = this.top.prev;
+            const top = this.top;
+            delete temp.next;                        
+            delete this.top;          
+            this.top = temp;
+            this.size--;
+            return top;
+        }
+    }
 
     peek(): Node {
         return this.top;

@@ -15,6 +15,9 @@ var Stack = /** @class */ (function () {
     Stack.prototype.hasTop = function () {
         return this.top !== null;
     };
+    Stack.prototype.isEmpty = function () {
+        return this.size === 0;
+    };
     Stack.prototype.push = function (data) {
         var node = new Node(data);
         if (!this.hasTop())
@@ -33,8 +36,10 @@ var Stack = /** @class */ (function () {
         else {
             var temp = this.top.prev;
             var top_1 = this.top;
-            this.top = new Node(null);
+            delete temp.next;
+            delete this.top;
             this.top = temp;
+            this.size--;
             return top_1;
         }
     };
