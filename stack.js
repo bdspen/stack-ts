@@ -9,7 +9,7 @@ var Node = /** @class */ (function () {
 exports.Node = Node;
 var Stack = /** @class */ (function () {
     function Stack() {
-        this.top = new Node();
+        this.top = new Node(null);
         this.size = 0;
     }
     Stack.prototype.hasTop = function () {
@@ -29,10 +29,13 @@ var Stack = /** @class */ (function () {
     };
     Stack.prototype.pop = function () {
         if (!this.hasTop())
-            return;
+            throw new Error('Stack is empty');
         else {
             var temp = this.top.prev;
+            var top_1 = this.top;
+            this.top = new Node(null);
             this.top = temp;
+            return top_1;
         }
     };
     Stack.prototype.peek = function () {

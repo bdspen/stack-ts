@@ -10,11 +10,12 @@ export class Node {
 }
 
 export class Stack {
+
     top: Node;
     size: number
 
     constructor () {
-        this.top = new Node();
+        this.top = new Node(null);
         this.size = 0;
     }
 
@@ -35,13 +36,16 @@ export class Stack {
         return node;
     }
 
-    pop(): void {
-        if (!this.hasTop()) return;
-        else {
-            const temp = this.top.prev;
-            this.top = temp;
-        }
-    }
+    // pop(): Node {
+    //     if (!this.hasTop()) throw new Error('Stack is empty');
+    //     else {
+    //         const temp = this.top.prev;
+    //         const top = this.top;
+    //         this.top = new Node(null);            
+    //         this.top = temp;
+    //         return top;
+    //     }
+    // }
 
     peek(): Node {
         return this.top;
