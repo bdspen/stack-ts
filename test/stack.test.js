@@ -77,7 +77,7 @@ describe('Stack', () => {
             const popped = stack.pop();
             assert.equal(popped.data, data);
         });
-        
+
     });
 
     describe('Stack functions', () => {
@@ -96,11 +96,12 @@ describe('Stack', () => {
             }
     
             const result = storage.filter((data, i) => {
-                const index = stackTwo.size - (i+1);
+                const index = stackTwo.size - 1;
                 const popped = stackTwo.pop();
                 return popped.data === storage[index];
-            }).length === stackSize;
-            assert.equal(result, true);
+            });
+
+            assert.equal(result.length === stackSize, true);
         });
 
 
